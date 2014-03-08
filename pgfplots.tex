@@ -1,0 +1,30 @@
+%+------------------------------------+
+%|      setting up pgfplots           |
+%+------------------------------------+
+
+% set global parameters
+\pgfplotsset{
+	graphplot/.style args={#1:#2 #3:#4}{
+        domain=#1:#2,% xmin to xmax
+        samples=100,% amount of calculated coordinates
+        xlabel=$\scriptstyle x$,% x scale label
+        ylabel=$\scriptstyle f(x)$,% y scale
+        xmin=#1,
+        xmax=#2,
+        ymin=#3,
+        ymax=#4,
+        xtick={#1,...,#2},% interval x scale labels
+        ytick={#3,...,#4},% ínterval y scale labels
+        restrict y to domain=#3:#4,% prevent overflows
+        axis lines=middle,% draw Cartesian coordinate system
+        tick label style={font=\tiny},% set label style
+        smooth,% edge smoothing for curves
+        axis plot post/.style={% define graph style
+            black,% color
+            mark=none,% no dots along the path
+            smooth% edge smoothing
+        },
+        width=8cm,% width of the graphic
+        height=8cm,% height of the graphic
+	}
+}

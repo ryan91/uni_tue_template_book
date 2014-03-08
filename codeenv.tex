@@ -1,0 +1,120 @@
+%+------------------------------------+
+%|   setting up code environments     |
+%+------------------------------------+
+
+% java (kind of "Eclipse" highlighting)
+\definecolor{comment}{RGB}{63,127,95}
+\definecolor{string}{RGB}{42,0,255}
+\definecolor{keyword}{RGB}{117,0,89}
+\definecolor{delim}{RGB}{20,105,176}
+\lstdefinestyle{java}{%
+	language=JAVA,%
+	commentstyle=\color{comment},%
+	stringstyle=\color{string},%
+	keywordstyle=\color{keyword}\bfseries,%
+	basicstyle=\ttfamily\footnotesize,%
+	numbers=left,
+	numberstyle=\tiny\color{black},
+	stepnumber=1,
+	showstringspaces=false,%
+	columns=fixed,%
+	moredelim=[is][\itshape]{@@}{@@},%
+	tabsize=4
+}
+
+% php
+\lstdefinestyle{php}{%
+	language=PHP,%
+	commentstyle=\color{comment},%
+	stringstyle=\color{string},%
+	keywordstyle=\color{keyword}\bfseries,%
+	basicstyle=\ttfamily\footnotesize,%
+	numbers=left,
+	numberstyle=\tiny\color{black},
+	stepnumber=1,
+	showstringspaces=false,%
+	columns=fixed,%
+	moredelim=[is][\itshape]{@@}{@@},%
+	tabsize=4
+}
+
+% c++
+\lstdefinestyle{cpp}{%
+	language=C++,%
+	commentstyle=\color{comment},%
+	stringstyle=\color{string},%
+	keywordstyle=\color{keyword}\bfseries,%
+	basicstyle=\ttfamily\footnotesize,%
+	numbers=left,
+	numberstyle=\tiny\color{black},
+	stepnumber=1,
+	showstringspaces=false,%
+	columns=fixed,%
+	moredelim=[is][\itshape]{@@}{@@},%
+	tabsize=4
+}
+
+% JSON
+\lstdefinestyle{json}{%
+	language=C++,%
+	commentstyle=\color{comment},%
+	stringstyle=\color{string},%
+	keywordstyle=\color{keyword}\bfseries,%
+	basicstyle=\ttfamily\footnotesize,%
+	numbers=left,
+	numberstyle=\tiny\color{black},
+	stepnumber=1,
+	showstringspaces=false,%
+	columns=fixed,%
+	moredelim=[is][\itshape]{@@}{@@},%
+	tabsize=4
+}
+
+% x86 assembler
+\lstdefinestyle{x86asm}{
+	language=[x86masm]Assembler,
+	commentstyle=\color{comment},%
+	stringstyle=\color{string},%
+	keywordstyle=\color{keyword}\bfseries,%
+	basicstyle=\ttfamily\footnotesize,%
+	numbers=left,
+	numberstyle=\tiny\color{black},
+	stepnumber=1,
+	showstringspaces=false,%
+	columns=fixed,%
+	moredelim=[is][\itshape]{@@}{@@},%
+	tabsize=4
+}
+
+% mips assembler
+\lstdefinestyle{mipsasm}{
+	language=[mips]Assembler,
+	commentstyle=\color{comment},%
+	stringstyle=\color{string},%
+	keywordstyle=\color{keyword}\bfseries,%
+	basicstyle=\ttfamily\footnotesize,%
+	numbers=left,
+	numberstyle=\tiny\color{black},
+	stepnumber=1,
+	showstringspaces=false,%
+	columns=fixed,%
+	moredelim=[is][\itshape]{@@}{@@},%
+	tabsize=4
+}
+
+% everthing else - pseudo code and such
+\lstdefinelanguage{plain}{%
+    comment=[l]{//}
+}
+\lstdefinestyle{plain}{%
+	commentstyle=\color{comment},%
+	language=plain,%
+	basicstyle=\ttfamily\footnotesize,%
+	numbers=left,
+	numberstyle=\tiny\color{black},
+	stepnumber=1,
+	showstringspaces=false,%
+	columns=fixed,%
+	moredelim=[is][\itshape]{@@}{@@},%
+	tabsize=4
+}

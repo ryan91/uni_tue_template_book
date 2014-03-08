@@ -1,0 +1,336 @@
+%+------------------------------------+
+%|       self-defined commands        |
+%+------------------------------------+
+
+%            Miscellanious
+% -------------------------------------
+
+% over- and underset
+% @param 1: What's in the middle
+% @param 2: What's above
+% @param 3: What's below
+\newcommand
+{\ouset}[3]
+{\overset{#2}{\underset{#3}{#1}}}
+
+% small math text
+% Use this if you want to write small text in math mode but do not want it
+% to be in italics
+% @param 1: The small text
+\newcommand
+{\smt}[1]
+{\mbox{\scriptsize #1}}
+
+% identity
+\newcommand
+{\id}
+{\mbox{id}}
+
+% Rang
+\newcommand
+{\rg}
+{\mbox{rg}}
+
+\newcommand
+{\subExBegin}[1]
+{
+    \vspace{-4mm}
+    \ifthenelse{\isempty{#1}}
+    {\begin{enumerate}}
+    {\begin{enumerate}[#1]}
+    \itemsep-3mm
+}
+
+% German quotation marks
+% @param 1: Contents between quotation marks
+\newcommand
+{\gqm}[1]
+{\glqq #1\grqq}
+
+% For drawing functions
+\newenvironment
+{function}[1]
+{%
+    \begin{tikzpicture}
+    \ifthenelse{\isempty{#1}}{
+        \begin{axis}[ejes=-4:4 -4:4]
+    } {
+        \begin{axis}[#1]
+    }
+}%
+{%
+    \end{axis}
+    \end{tikzpicture}
+}
+
+% Little wrapper for drawing a function in the "function"- environment
+\newcommand
+{\drawfunction}[1]
+{\addplot[]{#1};}
+
+
+%            Mathematic
+% -------------------------------------
+
+    % 1 General Constructs
+
+		% 1.1 Miscellanious / Stuff that turned out to be useful
+
+            % Standard limes to infinity
+            %@param 1: Variable
+            \renewcommand
+            {\liminf}[1]
+            {\limlim{#1\rightarrow\infty}}
+
+            % Standart sum to infinity
+            \newcommand
+            {\suminf}[1]
+            {\limsum{#1}{\infty}}
+
+		% 1.2 Left- Right- Bracket- Constructs
+
+			% round bracket
+			\newcommand
+			{\lrr}[1]
+			{\left(#1\right)}
+
+			% angled bracket
+			\newcommand
+			{\lra}[1]
+			{\left[#1\right]}
+
+			% cambered bracket
+			\newcommand
+			{\lrc}[1]
+			{\left\{#1\right\}}
+
+			% angled brackets
+			\newcommand{\lrg}[1]
+			{\left\langle #1\right\rangle}
+
+			% absolute value
+			\newcommand
+			{\lrabs}[1]
+			{\left|#1\right|}
+
+			% floor
+			\newcommand
+			{\floor}[1]
+			{\left\lfloor#1\right\rfloor}
+
+			% ceiling
+			\newcommand
+			{\ceiling}[1]
+			{\left\lceil#1\right\rceil}
+
+			% vector
+			\newcommand
+			{\lrv}[1]
+			{\lrr{\begin{smallmatrix}#1\end{smallmatrix}}}
+
+		% 1.3 Constructs containing "\limits" command
+
+			% Sum with limits
+			% @param 1: Index below the sum
+			% @param 2: index above the sum
+			\newcommand
+			{\limsum}[2]
+			{\sum\limits_{#1}^{#2}}
+
+			% Product with limits
+			% @param 1: Index below the product
+			% @param 2: index above the proudct
+			\newcommand
+			{\limprod}[2]
+			{\prod\limits_{#1}^{#2}}
+
+			% Integral witch limits
+			% @param 1: Index below the integral
+			% @param 2: index above the integral
+			\newcommand
+			{\limint}[2]
+			{\displaystyle\int\limits_{#1}^{#2}}
+
+			% Limes with limits
+			%@param 1: What's under the limes
+			\newcommand
+			{\limlim}[1]
+			{\lim\limits_{#1}}
+
+		% 1.4 Other
+
+			% große Tilde über ein Zeichen
+			\newcommand
+			{\bigtilde}[1]
+			{\overset{\sim}{#1}}
+
+	% 2 Logische Junktoren
+
+		% und- Junktor
+		\renewcommand
+		{\land}
+		{\wedge}
+
+		% oder- Junktor
+		\renewcommand
+		{\lor}
+		{\vee}
+
+		% nicht- Junktor
+		\renewcommand
+		{\lnot}
+		{\neg}
+
+		% exclusive- Or (XOR)- Junktor
+		\newcommand
+		{\lxor}
+		{\oplus}
+
+	% 3 Mengenlehre
+
+		% 3.1 Spezielle Mengen
+
+			% natürliche Zahlen
+			\newcommand
+			{\mn}
+			{\mathbb{N}}
+
+			% reelle Zahlen
+			\newcommand
+			{\mr}
+			{\mathbb{R}}
+
+			% ganze Zahlen
+			\newcommand
+			{\mz}
+			{\mathbb{Z}}
+
+			% rationale Zahlen
+			\newcommand
+			{\mq}
+			{\mathbb{Q}}
+
+			% komplexe Zahlen
+			\newcommand
+			{\mc}
+			{\mathbb{C}}
+
+			% Lösungsmenge
+			\newcommand
+			{\ml}
+			{\mathbb{L}}
+
+			% leere Menge
+			\newcommand
+			{\mvoid}
+			{\emptyset}
+
+			% Potenzmenge
+			\newcommand
+			{\mpz}
+			{\mathcal{P}}
+
+		% 3.2 Verknüfungsglieder von Mengen
+
+			% Vereinigung
+			\newcommand
+			{\mor}
+			{\cup}
+
+			% Schnitt
+			\newcommand
+			{\mand}
+			{\cap}
+
+			% symmetrische Differenz
+			\newcommand
+			{\mnand}
+			{\bigtriangleup}
+
+			% Differenzmenge
+			\newcommand
+			{\mnot}
+			{\setminus}
+
+			% Komplement
+			\newcommand
+			{\mcp}
+			{^\complement}
+
+			% Teilmenge ("part of")
+			\newcommand
+			{\mpo}
+			{\subseteq}
+
+			% "Summe" aller Vereinigungen
+			% @param 1: Was unter dem Operator steht
+			% @param 2: Was über dem Operator steht
+			\newcommand
+			{\morsum}[2]
+			{\bigcup\limits_{#1}^{#2}}
+
+			% "Summe" aller Schnitte
+			% @param 1: Was unter dem Operator steht
+			% @param 2: Was über dem Operator steht
+			\newcommand
+			{\mandsum}[2]
+			{\bigcap\limits_{#1}^{#2}}
+
+			% Karthesisches Produkt
+			\newcommand
+			{\mkth}[2]
+			{\prod\limits_{#1}^{#2}}
+
+    % 4 Analysis
+
+        % Grad einer Funktion
+        \newcommand
+        {\grad}
+        {\mathrm{grad}}
+
+        % Umkehrfunktion
+        \newcommand
+        {\ifu}[1]
+        {#1^{-1}}
+
+        % Diff.quotient
+        \renewcommand
+        {\dq}[1]
+        {\frac{\mbox{d}}{\mbox{d}#1}}
+
+        % differenzierbar
+        \newcommand
+        {\diffbar}
+        {differenzierbar\;}
+
+        %dx
+        \newcommand
+        {\intd}[1]
+        {\;\mathrm{d}#1}
+
+	% 5  Lineare Algebra
+
+		% R-Vektorraum
+		\newcommand
+		{\rvecroom}
+		{$\mr$-Vektorraum}
+
+		% linear anhängig
+		\newcommand
+		{\la}
+		{linear abhängig }
+
+		% linear unabhängig
+		\newcommand
+		{\lu}
+		{linear unabhängig }
+
+		% lineares Gleichungssystem
+		\newcommand
+		{\lgs}
+		{lineares Gleichungssystem }
+
+		% Größter gemeinsamer Teiler
+		\newcommand
+		{\ggT}
+		{\mbox{ggT}}
