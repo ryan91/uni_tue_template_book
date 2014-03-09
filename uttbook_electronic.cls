@@ -15,7 +15,7 @@
 % MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
 % General Public License
 
-\LoadClass[a4paper,11pt,twoside,fleqn]{scrbook}
+\LoadClass[a4paper,11pt,oneside,fleqn]{scrbook}
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{uttbook_electronic}
@@ -26,18 +26,22 @@
 
 \input{usepackage.tex}
 
+% use this package exclusively for pdf version
+\usepackage[
+    pdfauthor={David Morgenstern, Yannick Runge},
+    pdftitle={Mathematik III Prof. Hauck},
+    colorlinks=true,
+    linkcolor=blue
+]{hyperref}
+
 %+------------------------------------+
 %|            page layout             |
 %+------------------------------------+
 
-% set binding margin (optional)
-% \BCOR{x.xxcm}
-
 % set text and page margins
-\setlength{\footskip}{0cm}
+\setlength{\footskip}{1cm}
 \setlength{\textheight}{24.5cm}
-\setlength{\oddsidemargin}{-1cm}
-\setlength{\evensidemargin}{1cm}
+\setlength{\oddsidemargin}{0cm}
 \setlength{\textwidth}{16cm}
 
 % paragraph indent and space
@@ -46,8 +50,9 @@
 
 % set header and footer style (footer is empty)
 \fancyhf{}
-\fancyhead[LE]{\thepage}
-\fancyhead[RE]{\leftmark}
+\fancyfoot[LO]{\leftmark}
+\fancyfoot[RO]{\thepage}
+\renewcommand{\footrulewidth}{0.4pt}
 \fancyhead[RO]{\thepage}
 \fancyhead[LO]{\rightmark}
 
