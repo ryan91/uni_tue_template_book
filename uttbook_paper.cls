@@ -26,6 +26,16 @@
 
 \input{usepackage.tex}
 
+% fake hyperref commands so the user doesn't have to write two
+% diffent versions of the document
+\newcommand
+{\texorpdfstring}[2]
+{#1}
+
+\newcommand
+{\href}[2]
+{\color{blue}\underline{\texttt{#1}}\color{black}}
+
 %+------------------------------------+
 %|            page layout             |
 %+------------------------------------+
